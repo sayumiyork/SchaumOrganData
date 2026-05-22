@@ -15,7 +15,7 @@ plotAcrossBrain<- function( x ) {
   ggplot( df ) +
     geom_bar( aes( age_sex, counts ), stat="identity" ) +
     ggtitle(x)+
-    xlab("Mice") +
+    xlab("Mice (Brain)") +
     ylab("Normalized counts") +
     theme_bw() +
     theme( axis.text.x = element_text( angle=90, vjust=0.5 ) )
