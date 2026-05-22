@@ -12,10 +12,11 @@ plotAcrossBrain<- function( x ) {
   df <- data.frame(counts(brain, normalized=TRUE)[x,], brain_metadata$age_sex, row.names = row.names(brain_metadata))
   colnames(df) <- c("counts", "age_sex")
   df$age_sex <- fct_relevel( factor( df$age_sex), "1_m","3_m","6_m","9_m","12_m", "15_m", "18_m", "21_m", "24_m", "27_m", "1_f","3_f","6_f","9_f","12_f", "15_f", "18_f", "21_f")
+  title_text <- paste(x,"(Brain)")
   ggplot( df ) +
     geom_bar( aes( age_sex, counts ), stat="identity" ) +
-    ggtitle(x)+
-    xlab("Mice (Brain)") +
+    ggtitle(title_text)+
+    xlab("Mice (age in months, sex)") +
     ylab("Normalized counts") +
     theme_bw() +
     theme( axis.text.x = element_text( angle=90, vjust=0.5 ) )
